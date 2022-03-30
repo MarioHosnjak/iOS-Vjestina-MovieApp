@@ -15,7 +15,6 @@
 		98CF469C27E748B200E97E37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98CF469B27E748B200E97E37 /* Assets.xcassets */; };
 		98CF469F27E748B200E97E37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CF469D27E748B200E97E37 /* LaunchScreen.storyboard */; };
 		98DE982427F27B7700E12631 /* 2069492.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98DE982327F27B7700E12631 /* 2069492.jpg */; };
-		98DE982627F27D1500E12631 /* 2069492 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98DE982527F27D1400E12631 /* 2069492 2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 		98CF469E27E748B200E97E37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98CF46A027E748B200E97E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98DE982327F27B7700E12631 /* 2069492.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2069492.jpg; sourceTree = "<group>"; };
-		98DE982527F27D1400E12631 /* 2069492 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2069492 2.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +64,6 @@
 				98CF469427E748B000E97E37 /* SceneDelegate.swift */,
 				98CF469827E748B000E97E37 /* Main.storyboard */,
 				98DE982327F27B7700E12631 /* 2069492.jpg */,
-				98DE982527F27D1400E12631 /* 2069492 2.jpg */,
 				98CF469B27E748B200E97E37 /* Assets.xcassets */,
 				98CF469D27E748B200E97E37 /* LaunchScreen.storyboard */,
 				98CF46A027E748B200E97E37 /* Info.plist */,
@@ -142,7 +139,6 @@
 				98CF469F27E748B200E97E37 /* LaunchScreen.storyboard in Resources */,
 				98CF469C27E748B200E97E37 /* Assets.xcassets in Resources */,
 				98DE982427F27B7700E12631 /* 2069492.jpg in Resources */,
-				98DE982627F27D1500E12631 /* 2069492 2.jpg in Resources */,
 				98CF469A27E748B000E97E37 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

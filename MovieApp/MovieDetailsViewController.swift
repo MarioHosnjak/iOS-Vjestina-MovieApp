@@ -2,11 +2,19 @@ import Foundation
 import UIKit
 import PureLayout
 
+
+//      DISCLAIMER: Zbog previše labosa/zadaća na faksu ovaj tjedan nisam imao dovoljno vremena detaljnije
+//                  proučiti UICollectionView, pa sam ovaj zadji dio s scenaristima napravio na jako loš način.
+//                  U naredim danima ću to promijeniti.
+
 class ViewController: UIViewController {
+    
+    var scrollView: UIScrollView!
 
     let imageView = UIImageView(image: UIImage(named: "2069492 2"))
     let starButton = UIButton()
     let overviewView = UIView()
+    
     
     let labelPercentage = UILabel(frame: CGRect(x: 25, y: 200, width: 70, height: 20))
     let labelUsrScore = UILabel()
@@ -19,6 +27,33 @@ class ViewController: UIViewController {
     let labelOverview = UILabel()
     let labelSummary = UILabel()
     
+    let castView1 = UIView()
+    let labelCastView11 = UILabel()
+    let labelCastView12 = UILabel()
+    
+    let castView2 = UIView()
+    let labelCastView21 = UILabel()
+    let labelCastView22 = UILabel()
+    
+    let castView3 = UIView()
+    let labelCastView31 = UILabel()
+    let labelCastView32 = UILabel()
+    
+    let castView4 = UIView()
+    let labelCastView41 = UILabel()
+    let labelCastView42 = UILabel()
+    
+    let castView5 = UIView()
+    let labelCastView51 = UILabel()
+    let labelCastView52 = UILabel()
+    
+    let castView6 = UIView()
+    let labelCastView61 = UILabel()
+    let labelCastView62 = UILabel()
+    
+    let labelTEST = UILabel()
+    
+    
     let screenSize: CGRect = UIScreen.main.bounds
     
     override func viewDidLoad() {
@@ -28,10 +63,21 @@ class ViewController: UIViewController {
         addConstraints()
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        scrollView.contentSize = view.bounds.size
+    }
 
     private func buildViews() {
         
         view.backgroundColor = UIColor(red: 10/255, green: 70/255, blue: 110/255, alpha: 1.0)
+        
+        scrollView = UIScrollView()
+        scrollView.backgroundColor = .yellow
+        scrollView.autoSetDimension(.width, toSize: screenSize.width)
+        scrollView.autoSetDimension(.height, toSize: screenSize.height)
+        scrollView.contentSize = CGSize(width: screenSize.width, height: 1500)
         
         
 //        imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.5)
@@ -111,8 +157,88 @@ class ViewController: UIViewController {
         labelSummary.text = "After beeing held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil."
         labelSummary.numberOfLines = 0
         
+        let castViewHeight = 75.0
+        
+        castView1.autoSetDimension(.width, toSize: screenSize.width * 0.2333)
+        castView1.autoSetDimension(.height, toSize: castViewHeight)
+//        castView1.backgroundColor = .systemYellow
+        
+        labelCastView11.text = "Don Heck"
+        labelCastView12.text = "Characters"
+        labelCastView11.font = UIFont.boldSystemFont(ofSize: 17)
+        
+        castView1.addSubview(labelCastView11)
+        castView1.addSubview(labelCastView12)
         
         
+        castView2.autoSetDimension(.width, toSize: screenSize.width * 0.2333)
+        castView2.autoSetDimension(.height, toSize: castViewHeight)
+//        castView2.backgroundColor = .systemYellow
+        
+        labelCastView21.text = "Jack Kirby"
+        labelCastView22.text = "Characters"
+        labelCastView21.font = UIFont.boldSystemFont(ofSize: 17)
+        
+        castView2.addSubview(labelCastView21)
+        castView2.addSubview(labelCastView22)
+        
+        
+        castView3.autoSetDimension(.width, toSize: screenSize.width * 0.2333)
+        castView3.autoSetDimension(.height, toSize: castViewHeight)
+//        castView3.backgroundColor = .systemYellow
+    
+        labelCastView31.text = "Jon Favreau"
+        labelCastView32.text = "Director"
+        labelCastView31.font = UIFont.boldSystemFont(ofSize: 17)
+    
+        castView3.addSubview(labelCastView31)
+        castView3.addSubview(labelCastView32)
+        
+        
+        castView4.autoSetDimension(.width, toSize: screenSize.width * 0.2333)
+        castView4.autoSetDimension(.height, toSize: castViewHeight)
+//        castView4.backgroundColor = .systemYellow
+    
+        labelCastView41.text = "Don Heck"
+        labelCastView42.text = "Screenplay"
+        labelCastView41.font = UIFont.boldSystemFont(ofSize: 17)
+    
+        castView4.addSubview(labelCastView41)
+        castView4.addSubview(labelCastView42)
+        
+        
+        castView5.autoSetDimension(.width, toSize: screenSize.width * 0.2333)
+        castView5.autoSetDimension(.height, toSize: castViewHeight)
+//        castView5.backgroundColor = .systemYellow
+    
+        labelCastView51.text = "Jack Marcum"
+        labelCastView52.text = "Screenplay"
+        labelCastView51.font = UIFont.boldSystemFont(ofSize: 17)
+    
+        castView5.addSubview(labelCastView51)
+        castView5.addSubview(labelCastView52)
+        
+        
+        castView6.autoSetDimension(.width, toSize: screenSize.width * 0.2333)
+        castView6.autoSetDimension(.height, toSize: castViewHeight)
+//        castView6.backgroundColor = .systemYellow
+    
+        labelCastView61.text = "Matt Holloway"
+        labelCastView62.text = "Screenplay"
+        labelCastView61.font = UIFont.boldSystemFont(ofSize: 17)
+    
+        castView6.addSubview(labelCastView61)
+        castView6.addSubview(labelCastView62)
+        
+        
+        
+        
+        
+        
+        
+        
+        labelTEST.text = "TEST LABEL"
+        labelTEST.font = UIFont.systemFont(ofSize: 24, weight: .black)
         
         
         
@@ -120,11 +246,25 @@ class ViewController: UIViewController {
         overviewView.addSubview(labelOverview)
         overviewView.addSubview(labelSummary)
         
-        view.addSubview(imageView)
-        view.addSubview(overviewView)
+        overviewView.addSubview(castView1)
+        overviewView.addSubview(castView2)
+        overviewView.addSubview(castView3)
+        overviewView.addSubview(castView4)
+        overviewView.addSubview(castView5)
+        overviewView.addSubview(castView6)
+        
+        overviewView.addSubview(labelTEST)
+        
+        scrollView.addSubview(imageView)
+        scrollView.addSubview(overviewView)
+        
+        view.addSubview(scrollView)
     }
     
     private func addConstraints() {
+        
+        scrollView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 0)
+        scrollView.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 0)
         
 //        IMAGEVIEW
         
@@ -159,7 +299,7 @@ class ViewController: UIViewController {
 //        OVERVIEW
         
         overviewView.autoPinEdge(.top, to: .bottom, of: imageView)
-        overviewView.autoPinEdge(.leading, to: .leading, of: view)
+        overviewView.autoPinEdge(.leading, to: .leading, of: scrollView)
         
         labelOverview.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 23)
         labelOverview.autoPinEdge(.top, to: .top, of: overviewView, withOffset: 25)
@@ -168,6 +308,57 @@ class ViewController: UIViewController {
         labelSummary.autoPinEdge(.top, to: .bottom, of: labelOverview, withOffset: 15)
         labelSummary.autoSetDimension(.width, toSize: screenSize.width - 2*25)
         
+        castView1.autoPinEdge(toSuperviewSafeArea: .leading, withInset: screenSize.width * 0.05)
+        castView1.autoPinEdge(.top, to: .bottom, of: labelSummary, withOffset: 30)
+        
+        labelCastView11.autoPinEdge(.top, to: .top, of: castView1)
+        labelCastView12.autoPinEdge(.leading, to: .leading, of: castView1)
+        labelCastView12.autoPinEdge(.top, to: .bottom, of: labelCastView11, withOffset: 10)
+        labelCastView12.autoPinEdge(.leading, to: .leading, of: castView1)
+        
+        castView2.autoPinEdge(.leading, to: .trailing, of: castView1, withOffset: screenSize.width * 0.07)
+        castView2.autoPinEdge(.top, to: .bottom, of: labelSummary, withOffset: 30)
+        
+        labelCastView21.autoPinEdge(.top, to: .top, of: castView2)
+        labelCastView22.autoPinEdge(.leading, to: .leading, of: castView2)
+        labelCastView22.autoPinEdge(.top, to: .bottom, of: labelCastView21, withOffset: 10)
+        labelCastView22.autoPinEdge(.leading, to: .leading, of: castView2)
+        
+        castView3.autoPinEdge(.leading, to: .trailing, of: castView2, withOffset: screenSize.width * 0.07)
+        castView3.autoPinEdge(.top, to: .bottom, of: labelSummary, withOffset: 30)
+        
+        labelCastView31.autoPinEdge(.top, to: .top, of: castView3)
+        labelCastView32.autoPinEdge(.leading, to: .leading, of: castView3)
+        labelCastView32.autoPinEdge(.top, to: .bottom, of: labelCastView31, withOffset: 10)
+        labelCastView32.autoPinEdge(.leading, to: .leading, of: castView3)
+        
+        castView4.autoPinEdge(toSuperviewSafeArea: .leading, withInset: screenSize.width * 0.05)
+        castView4.autoPinEdge(.top, to: .bottom, of: castView1, withOffset: 20)
+        
+        labelCastView41.autoPinEdge(.top, to: .top, of: castView4)
+        labelCastView42.autoPinEdge(.leading, to: .leading, of: castView4)
+        labelCastView42.autoPinEdge(.top, to: .bottom, of: labelCastView41, withOffset: 10)
+        labelCastView42.autoPinEdge(.leading, to: .leading, of: castView4)
+        
+        castView5.autoPinEdge(.leading, to: .trailing, of: castView4, withOffset: screenSize.width * 0.07)
+        castView5.autoPinEdge(.top, to: .bottom, of: castView1, withOffset: 20)
+        
+        labelCastView51.autoPinEdge(.top, to: .top, of: castView5)
+        labelCastView52.autoPinEdge(.leading, to: .leading, of: castView5)
+        labelCastView52.autoPinEdge(.top, to: .bottom, of: labelCastView51, withOffset: 10)
+        labelCastView52.autoPinEdge(.leading, to: .leading, of: castView5)
+        
+        castView6.autoPinEdge(.leading, to: .trailing, of: castView5, withOffset: screenSize.width * 0.07)
+        castView6.autoPinEdge(.top, to: .bottom, of: castView1, withOffset: 20)
+        
+        labelCastView61.autoPinEdge(.top, to: .top, of: castView6)
+        labelCastView62.autoPinEdge(.leading, to: .leading, of: castView6)
+        labelCastView62.autoPinEdge(.top, to: .bottom, of: labelCastView61, withOffset: 10)
+        labelCastView62.autoPinEdge(.leading, to: .leading, of: castView6)
+        
+        
+        labelTEST.autoPinEdge(.top, to: .bottom, of: labelSummary, withOffset: 1000)
+        labelTEST.autoPinEdge(toSuperviewSafeArea: .leading, withInset: 20)
         
     }
     
@@ -185,3 +376,10 @@ class ViewController: UIViewController {
     }
     
 }
+
+
+
+//  PITANJNA
+// scrollView?, jel treba content view?
+// button ne radi
+// frame == size?
