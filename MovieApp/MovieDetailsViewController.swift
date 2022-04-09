@@ -3,11 +3,15 @@ import UIKit
 import PureLayout
 
 
-//      DISCLAIMER: Zbog previše labosa/zadaća na faksu ovaj tjedan nisam imao dovoljno vremena detaljnije
-//                  proučiti UICollectionView, pa sam ovaj zadji dio s scenaristima napravio na jako loš način.
-//                  U naredim danima ću to promijeniti.
-
-class ViewController: UIViewController {
+class MovieDetailsViewController: UIViewController {
+    
+    let percentage = "76%"
+    let movieName = "Iron man"
+    let year = "(2008)"
+    let releaseDate = "05/02/2008 (US)"
+    let genre = "Action, Science Fiction, Adventure"
+    let duration = "2h 6m"
+    let summary = "After beeing held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil."
     
     var scrollView: UIScrollView!
 
@@ -68,6 +72,14 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
 //        scrollView.contentSize = view.bounds.size
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        let bounds = UIScreen.main.bounds
+        imageView.frame.size = CGSize(width: bounds.width, height: bounds.height)
+//        scrollView.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: 0)
+    }
 
     private func buildViews() {
         
@@ -80,6 +92,9 @@ class ViewController: UIViewController {
         scrollView.contentSize = CGSize(width: screenSize.width, height: 1500)
         
         
+//        imageView.contentMode = .scaleAspectFill
+        
+        
 //        imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.5)
         imageView.autoSetDimension(.width, toSize: screenSize.width)
         imageView.autoSetDimension(.height, toSize: screenSize.height * 0.5)
@@ -89,7 +104,7 @@ class ViewController: UIViewController {
         
         
         
-        labelPercentage.text = "76%"
+        labelPercentage.text = percentage
         labelPercentage.textColor = .white
         labelPercentage.textAlignment = .center
         labelPercentage.font = UIFont.boldSystemFont(ofSize: 23)
@@ -99,24 +114,24 @@ class ViewController: UIViewController {
         labelUsrScore.textColor = .white
 //        labelUsrScore.backgroundColor = .blue
         
-        labelName.text = "Iron man"
+        labelName.text = movieName
         labelName.textColor = .white
         labelName.font = UIFont(name:"HelveticaNeue-Bold", size: 27)
         
-        labelYear.text = "(2008)"
+        labelYear.text = year
         labelYear.textColor = .white
         labelYear.font = UIFont.systemFont(ofSize: 30)
         labelYear.textAlignment = .center
         
-        labelRelDate.text = "05/02/2008 (US)"
+        labelRelDate.text = releaseDate
         labelRelDate.textColor = .white
         labelRelDate.font = UIFont.systemFont(ofSize: 15)
         
-        labelGenre.text = "Action, Science Fiction, Adventure"
+        labelGenre.text = genre
         labelGenre.textColor = .white
         labelGenre.font = UIFont.systemFont(ofSize: 15)
         
-        labelDuration.text = "2h 6m"
+        labelDuration.text = duration
         labelDuration.textColor = .white
         labelDuration.font = UIFont.boldSystemFont(ofSize: 15)
         
@@ -127,6 +142,9 @@ class ViewController: UIViewController {
         starButton.setBackgroundImage(UIImage(named: "star.circle.fill"), for: .selected)
         starButton.setBackgroundImage(UIImage(named: "star.circle.fill"), for: .highlighted)
         
+//        starButton.addAction(.init{ _ in
+//            print("Button tapped")
+//        }, for: .touchUpInside)
         starButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
         
         print("proba")
@@ -154,7 +172,7 @@ class ViewController: UIViewController {
         labelOverview.font = UIFont.systemFont(ofSize: 24, weight: .black)
         labelOverview.textColor = UIColor(red: 12/255, green: 3/255, blue: 69/255, alpha: 1.0)
         
-        labelSummary.text = "After beeing held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil."
+        labelSummary.text = summary
         labelSummary.numberOfLines = 0
         
         let castViewHeight = 75.0
@@ -364,14 +382,14 @@ class ViewController: UIViewController {
     
     @objc func didButtonClick() {
             print("funkcija")
-    //        if(starButton.isSelected){
-    //            starButton.isSelected = false;
-    //            print("KLIK")
-    //        }
-    //        if(starButton.isSelected == false){
-    //            starButton.isSelected = true;
-    //            print("KLIK 2")
-    //        }
+//            if(starButton.isSelected){
+//                starButton.isSelected = false;
+//                print("KLIK")
+//            }
+//            else {
+//                starButton.isSelected = true;
+//                print("KLIK 2")
+//            }
         overviewView.backgroundColor = .blue
     }
     
@@ -379,7 +397,8 @@ class ViewController: UIViewController {
 
 
 
-//  PITANJNA
+//  PITANJA
 // scrollView?, jel treba content view?
 // button ne radi
+// pametniji nacin castViewa?
 // frame == size?
