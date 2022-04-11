@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9814893D27EB2AAA00AE520C /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 9814893C27EB2AAA00AE520C /* PureLayout */; };
 		9814893F27EB338300AE520C /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814893E27EB338300AE520C /* MovieDetailsViewController.swift */; };
+		985010992803224200391A85 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985010982803224200391A85 /* SearchBarView.swift */; };
+		9850109E2803533D00391A85 /* MovieAppData in Frameworks */ = {isa = PBXBuildFile; productRef = 9850109D2803533D00391A85 /* MovieAppData */; };
+		985010A02803BFF300391A85 /* myCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850109F2803BFF300391A85 /* myCollectionView.swift */; };
 		98CF469327E748B000E97E37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CF469227E748B000E97E37 /* AppDelegate.swift */; };
 		98CF469527E748B000E97E37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CF469427E748B000E97E37 /* SceneDelegate.swift */; };
 		98CF469A27E748B000E97E37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CF469827E748B000E97E37 /* Main.storyboard */; };
@@ -20,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		9814893E27EB338300AE520C /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		985010982803224200391A85 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		9850109F2803BFF300391A85 /* myCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myCollectionView.swift; sourceTree = "<group>"; };
 		98CF468F27E748AF00E97E37 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CF469227E748B000E97E37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98CF469427E748B000E97E37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9814893D27EB2AAA00AE520C /* PureLayout in Frameworks */,
+				9850109E2803533D00391A85 /* MovieAppData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,8 @@
 				98CF46A027E748B200E97E37 /* Info.plist */,
 				9814893E27EB338300AE520C /* MovieDetailsViewController.swift */,
 				98D081F328021B2F000DD016 /* MovieListViewController.swift */,
+				985010982803224200391A85 /* SearchBarView.swift */,
+				9850109F2803BFF300391A85 /* myCollectionView.swift */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -93,6 +101,7 @@
 			name = MovieApp;
 			packageProductDependencies = (
 				9814893C27EB2AAA00AE520C /* PureLayout */,
+				9850109D2803533D00391A85 /* MovieAppData */,
 			);
 			productName = MovieApp;
 			productReference = 98CF468F27E748AF00E97E37 /* MovieApp.app */;
@@ -124,6 +133,7 @@
 			mainGroup = 98CF468627E748AF00E97E37;
 			packageReferences = (
 				9814893B27EB2AAA00AE520C /* XCRemoteSwiftPackageReference "PureLayout" */,
+				9850109C2803533D00391A85 /* XCRemoteSwiftPackageReference "MovieAppData" */,
 			);
 			productRefGroup = 98CF469027E748AF00E97E37 /* Products */;
 			projectDirPath = "";
@@ -153,6 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				985010A02803BFF300391A85 /* myCollectionView.swift in Sources */,
+				985010992803224200391A85 /* SearchBarView.swift in Sources */,
 				9814893F27EB338300AE520C /* MovieDetailsViewController.swift in Sources */,
 				98CF469327E748B000E97E37 /* AppDelegate.swift in Sources */,
 				98CF469527E748B000E97E37 /* SceneDelegate.swift in Sources */,
@@ -382,6 +394,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		9850109C2803533D00391A85 /* XCRemoteSwiftPackageReference "MovieAppData" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fiveagency/MovieAppData.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -389,6 +409,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9814893B27EB2AAA00AE520C /* XCRemoteSwiftPackageReference "PureLayout" */;
 			productName = PureLayout;
+		};
+		9850109D2803533D00391A85 /* MovieAppData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9850109C2803533D00391A85 /* XCRemoteSwiftPackageReference "MovieAppData" */;
+			productName = MovieAppData;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
