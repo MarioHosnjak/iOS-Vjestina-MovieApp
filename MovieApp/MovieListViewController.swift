@@ -19,7 +19,6 @@ class MovieListViewController: UIViewController {
     
     var tableView: UITableView!
     let cellIdentifier = "cellId"
-    let cellSpacingHeight: CGFloat = 50
     
     var collectionView: myCollectionView!
     
@@ -55,7 +54,7 @@ class MovieListViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.isHidden = true
         
-        collectionView = myCollectionView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height - 130))
+        collectionView = myCollectionView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height))
         contentView.addSubview(collectionView)
              
     }
@@ -143,9 +142,9 @@ extension MovieListViewController: UITableViewDataSource { // 3.
         descLabel.font = UIFont.systemFont(ofSize: 15)
         descLabel.numberOfLines = 5
         
-        cell.addSubview(image)
-        cell.addSubview(titleLabel)
-        cell.addSubview(descLabel)
+        cell.contentView.addSubview(image)
+        cell.contentView.addSubview(titleLabel)
+        cell.contentView.addSubview(descLabel)
         
         
 //        var cellConfig = UIListContentConfiguration() // 5.
