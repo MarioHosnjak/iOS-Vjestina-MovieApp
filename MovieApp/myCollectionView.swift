@@ -16,8 +16,6 @@ class myCollectionView: UIView {
     var tableView: UITableView!
     let cellIdentifier = "cellId"
     
-    let cellSpacingHeight: CGFloat = 50
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .blue
@@ -30,11 +28,23 @@ class myCollectionView: UIView {
     }
     
     private func buildViews() {
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
-        self.addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier) // 1.
-        tableView.dataSource = self // 2.
-        tableView.backgroundColor = .white
+//        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
+//        self.addSubview(tableView)
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier) // 1.
+//        tableView.dataSource = self // 2.
+//        tableView.backgroundColor = .white
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.width + 200, height: self.bounds.height),
+                                              collectionViewLayout: flowLayout)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        self.addSubview(collectionView)
+        
     }
     
     private func addConstraints(){
@@ -42,73 +52,82 @@ class myCollectionView: UIView {
     }
     
 }
-extension myCollectionView: UITableViewDataSource { // 3.
+//extension myCollectionView: UITableViewDataSource { // 3.
+//
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//            return 1
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+////        let cell: UITableViewCell = tableView.dequeueReusableCell(
+////                withIdentifier: cellIdentifier,
+////                    for: indexPath) // 4.
+//        let cell = UITableViewCell()
+//
+//        tableView.rowHeight = 170
+//
+//        let flowLayout = UICollectionViewFlowLayout()
+//        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+////        flowLayout.itemSize = CGSize(width: 100, height: 150)
+//        flowLayout.scrollDirection = .horizontal
+//
+//        let viewPhotos = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height),
+//                            collectionViewLayout: flowLayout)
+//
+//        viewPhotos.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+//        viewPhotos.dataSource = self
+//        viewPhotos.delegate = self
+//
+//
+//
+//        cell.addSubview(viewPhotos)
+//
+//        return cell
+//    }
+//}
+
+
+extension myCollectionView: UICollectionViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-            return Movies.all().count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: UITableViewCell = tableView.dequeueReusableCell(
-//                withIdentifier: cellIdentifier,
-//                    for: indexPath) // 4.
-        let cell = UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
         
-        tableView.rowHeight = 170
-        tableView.separatorStyle = .none
-        
-//        // Apply rounded corners
-//        contentView.layer.cornerRadius = 5.0
-//        contentView.layer.masksToBounds = true
-        // Set masks to bounds to false to avoid the shadow
-        // from being clipped to the corner radius
-        cell.layer.cornerRadius = 5.0
-        cell.layer.masksToBounds = false
-        
-        // How blurred the shadow is
-        cell.layer.shadowRadius = 8.0
-        // The color of the drop shadow
-        cell.layer.shadowColor = UIColor.black.cgColor
-        // How transparent the drop shadow is
-        cell.layer.shadowOpacity = 0.15
-        // How far the shadow is offset from the UICollectionViewCell’s frame
-        cell.layer.shadowOffset = CGSize(width: 0, height: 5)
-
-        
-        let row = indexPath.section
-        
-        let urlString = Movies.all()[row].imageUrl
+        let urlString = Movies.all()[indexPath.row].imageUrl
         let url = URL(string: urlString)
         let image: UIImageView
         image = UIImageView()
         image.load(url: url!)
-        image.frame = CGRect(x: 10, y: 10, width: 100, height: 150)
-        
-        let title = "\(Movies.all()[row].title) (\(Movies.all()[row].year))"
-        let titleLabel = UILabel(frame: CGRect(x: 125, y: 10, width: self.frame.width - 100 - 20 - 20.0, height: 70))
-        titleLabel.text = title
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        titleLabel.numberOfLines = 2
-        
-        let desc = Movies.all()[row].description
-        let descLabel = UILabel(frame: CGRect(x: 125, y: 60, width: self.frame.width - 100 - 20 - 20.0, height: 100))
-        descLabel.text = desc
-        descLabel.font = UIFont.systemFont(ofSize: 15)
-        descLabel.numberOfLines = 5
+        image.frame = CGRect(x: 0, y: 0, width: 100, height: 150)
         
         cell.addSubview(image)
-        cell.addSubview(titleLabel)
-        cell.addSubview(descLabel)
         
-        
-//        var cellConfig = UIListContentConfiguration() // 5.
-//
-//
-//        cell.contentConfiguration = cellConfig
+        cell.backgroundColor = .blue
         return cell
+    }
+}
+
+extension myCollectionView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    // Logic when cell is selected
+    }
+}
+
+extension myCollectionView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
+                UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 100, height: 150)
     }
 }

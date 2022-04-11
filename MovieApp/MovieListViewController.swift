@@ -17,13 +17,11 @@ class MovieListViewController: UIViewController {
     
     var searchBar = SearchBarView()
     
-    
-    
+    var tableView: UITableView!
     let cellIdentifier = "cellId"
-    
     let cellSpacingHeight: CGFloat = 50
     
-    var tableView: UITableView!
+    var collectionView: myCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +55,8 @@ class MovieListViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.isHidden = true
         
-        let collectionView = myCollectionView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height - 130))
+        collectionView = myCollectionView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height - 130))
         contentView.addSubview(collectionView)
-        
-//        collectionView.frame = CGRect(x: 0, y: 130, width: view.bounds.width, height: view.bounds.height)
              
     }
     
@@ -81,9 +77,11 @@ class MovieListViewController: UIViewController {
     
     @objc func txtFieldSelected(){
         tableView.isHidden = false
+        collectionView.isHidden = true
     }
     @objc func magGlSelected(){
         tableView.isHidden = true
+        collectionView.isHidden = false
     }
 }
 
