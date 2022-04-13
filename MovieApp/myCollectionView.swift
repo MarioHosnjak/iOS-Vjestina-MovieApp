@@ -82,19 +82,8 @@ extension myCollectionView: UITableViewDataSource { // 3.
 //        let cell = UITableViewCell()
 
         tableView.rowHeight = 170 + 50
-
-//        let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-////        flowLayout.itemSize = CGSize(width: 100, height: 150)
-//        flowLayout.scrollDirection = .horizontal
-//
-//        let viewPhotos = UICollectionView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height), collectionViewLayout: flowLayout)
-//
-//        viewPhotos.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-//        viewPhotos.dataSource = self
-//        viewPhotos.delegate = self
         
-        //        cell.addSubview(viewPhotos)
+
         indexRow = indexPath.row
         let txt = groupDict[myGroups[indexRow]]
         let labelGroup = UILabel(frame: CGRect(x: 20, y: 0, width: bounds.width/2.0, height: 50.0))
@@ -112,7 +101,7 @@ extension myCollectionView: UITableViewDataSource { // 3.
         
         MovieArray = []
         
-
+        
 //        let collectionView2 = UICollectionView(frame: CGRect(x: 0, y: 170, width: bounds.width, height: 170),
 //                                              collectionViewLayout: flowLayout)
 //        collectionView2.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
