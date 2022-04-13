@@ -84,7 +84,6 @@ class SearchBarView: UIView {
     }
 
     @objc func textFieldSelected2(){
-        print("CLICKED!")
         for constraint in self.constraints {
             if constraint.firstAttribute == .width {
                 constraint.constant = self.superview!.frame.width * 0.7
@@ -99,7 +98,6 @@ class SearchBarView: UIView {
     
 
     @objc public func didCancelButtonClick2(){
-        print("cancel button clicked")
         self.endEditing(true)
         cancelButton.isHidden = true
         xButton.isHidden = true
@@ -113,8 +111,6 @@ class SearchBarView: UIView {
     
 
     @objc func didSearchButtonClick2(){
-        print("SEARCH!")
-        print("cancel button clicked")
         self.endEditing(true)
         cancelButton.isHidden = true
         xButton.isHidden = true

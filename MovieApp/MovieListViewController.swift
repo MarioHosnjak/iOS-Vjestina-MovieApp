@@ -20,7 +20,9 @@ class MovieListViewController: UIViewController {
     var tableView: UITableView!
     let cellIdentifier = "cellId"
     
-    var collectionView: myCollectionView!
+    var MovieGroupsTableView: MovieGroupsTableView!
+    
+    var collectionView: MovieListView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,8 @@ class MovieListViewController: UIViewController {
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(searchBar)
+        view.addSubview(searchBar)
+//        view.addSubview(searchBar)
         
         scrollView.backgroundColor = UIColor(red: 10/255, green: 70/255, blue: 110/255, alpha: 1.0)
         contentView.backgroundColor = .white
@@ -49,20 +52,21 @@ class MovieListViewController: UIViewController {
         
         tableView = UITableView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height - 130))
         contentView.addSubview(tableView)
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier) // 1.
         tableView.dataSource = self // 2.
         tableView.backgroundColor = .white
         tableView.isHidden = true
         
-        collectionView = myCollectionView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height))
+        collectionView = MovieListView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height))
         contentView.addSubview(collectionView)
-             
+        
     }
     
     private func addConstraints(){
         
         scrollView.autoPinEdgesToSuperviewEdges()
-        
+
         contentView.autoPinEdgesToSuperviewEdges()
         contentView.autoPinEdge(toSuperviewSafeArea: .top, withInset: 0)
         contentView.autoPinEdge(toSuperviewEdge: .leading)
@@ -71,6 +75,7 @@ class MovieListViewController: UIViewController {
         
         searchBar.autoPinEdge(toSuperviewSafeArea: .top, withInset: 10)
         searchBar.autoPinEdge(.leading, to: .leading, of: contentView, withOffset: view.frame.width * 0.05)
+        
         
     }
     
@@ -146,11 +151,6 @@ extension MovieListViewController: UITableViewDataSource { // 3.
         cell.contentView.addSubview(titleLabel)
         cell.contentView.addSubview(descLabel)
         
-        
-//        var cellConfig = UIListContentConfiguration() // 5.
-//
-//
-//        cell.contentConfiguration = cellConfig
         return cell
     }
 }
