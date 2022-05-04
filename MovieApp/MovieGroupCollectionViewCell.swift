@@ -49,7 +49,7 @@ class MovieGroupCollectionViewCell: UICollectionViewCell{
         bgCircleImg.addSubview(heartButton)
         
         heartButton.addTarget(self, action: #selector(heartBtnClick), for: .touchUpInside)
-        
+        heartButton.isUserInteractionEnabled = true
         
         
         self.layer.cornerRadius = 15

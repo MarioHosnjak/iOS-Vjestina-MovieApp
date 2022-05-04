@@ -69,6 +69,7 @@ extension MovieGroupCollectionView : UICollectionViewDataSource {
         let cell = dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieGroupCollectionViewCell
         cell.layer.cornerRadius = 15
         cell.set(movie: allMoviesInGroup[indexPath.row])
+        cell.isUserInteractionEnabled = true
         return cell
     }
 }

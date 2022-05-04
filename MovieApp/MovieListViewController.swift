@@ -50,7 +50,7 @@ class MovieListViewController: UIViewController {
         searchBar.magGlassButton.addTarget(self, action: #selector(magGlSelected), for: .touchUpInside)
         
         
-        tableView = UITableView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height - 130))
+        tableView = UITableView(frame: CGRect(x: 0, y: 70, width: view.bounds.width, height: view.bounds.height - 130))
         contentView.addSubview(tableView)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier) // 1.
@@ -58,7 +58,7 @@ class MovieListViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.isHidden = true
         
-        collectionView = MovieListView(frame: CGRect(x: 0, y: 120, width: view.bounds.width, height: view.bounds.height))
+        collectionView = MovieListView(frame: CGRect(x: 0, y: 70, width: view.bounds.width, height: view.bounds.height))
         contentView.addSubview(collectionView)
         
     }

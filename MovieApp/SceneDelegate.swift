@@ -35,7 +35,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else { return }
         window = UIWindow(windowScene: windowScene) // 2
         let vc = MovieListViewController() // 3
-        window!.rootViewController = vc // 4
+        let navigationController = UINavigationController(rootViewController: vc)
+//        navigationController.isNavigationBarHidden = true
+        window?.rootViewController = navigationController // 4
+//        window?.rootViewController = vc // 4
         window?.makeKeyAndVisible() // 5
     }
 
