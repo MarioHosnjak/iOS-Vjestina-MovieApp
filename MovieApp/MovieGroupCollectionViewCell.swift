@@ -30,6 +30,8 @@ class MovieGroupCollectionViewCell: UICollectionViewCell{
     
     func buildViews(){
         
+        
+        
         mainView = UIView()
         addSubview(mainView)
         

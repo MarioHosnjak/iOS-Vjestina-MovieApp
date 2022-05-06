@@ -10,7 +10,7 @@ import UIKit
 import PureLayout
 import MovieAppData
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, UINavigationControllerDelegate{
     
     var scrollView = UIScrollView()
     var contentView = UIView()
@@ -28,6 +28,13 @@ class MovieListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 10/255, green: 70/255, blue: 110/255, alpha: 1.0)
         
+//        let vc = FavoritesViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+//        let nc = UINavigationController(rootViewController: self)
+        
+        
         buildViews()
         addConstraints()
     }
@@ -37,7 +44,8 @@ class MovieListViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         view.addSubview(searchBar)
-//        view.addSubview(searchBar)
+        
+        scrollView.isScrollEnabled = false
         
         scrollView.backgroundColor = UIColor(red: 10/255, green: 70/255, blue: 110/255, alpha: 1.0)
         contentView.backgroundColor = .white
@@ -61,6 +69,14 @@ class MovieListViewController: UIViewController {
         collectionView = MovieListView(frame: CGRect(x: 0, y: 70, width: view.bounds.width, height: view.bounds.height))
         contentView.addSubview(collectionView)
         
+        
+    }
+    
+    @objc func tapFunc1(){
+        print("ekaj printam")
+        let vc = MovieDetailsViewController()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func addConstraints(){
@@ -76,7 +92,6 @@ class MovieListViewController: UIViewController {
         searchBar.autoPinEdge(toSuperviewSafeArea: .top, withInset: 10)
         searchBar.autoPinEdge(.leading, to: .leading, of: contentView, withOffset: view.frame.width * 0.05)
         
-        
     }
     
     @objc func txtFieldSelected(){
@@ -86,6 +101,10 @@ class MovieListViewController: UIViewController {
     @objc func magGlSelected(){
         tableView.isHidden = true
         collectionView.isHidden = false
+    }
+    
+    func cellTapped(){
+        
     }
 }
 

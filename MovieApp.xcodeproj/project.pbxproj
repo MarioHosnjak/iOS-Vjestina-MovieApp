@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980EA138282441FA00C294E9 /* newViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980EA137282441FA00C294E9 /* newViewController.swift */; };
+		980EA13A2824429400C294E9 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980EA1392824429400C294E9 /* FavoritesViewController.swift */; };
 		9814893D27EB2AAA00AE520C /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 9814893C27EB2AAA00AE520C /* PureLayout */; };
 		9814893F27EB338300AE520C /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814893E27EB338300AE520C /* MovieDetailsViewController.swift */; };
 		9841CD42280704A300B8D3DA /* MovieGroupsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841CD41280704A300B8D3DA /* MovieGroupsTableView.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		980EA137282441FA00C294E9 /* newViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = newViewController.swift; path = ../../../Downloads/newViewController.swift; sourceTree = "<group>"; };
+		980EA1392824429400C294E9 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		9814893E27EB338300AE520C /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		9841CD41280704A300B8D3DA /* MovieGroupsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGroupsTableView.swift; sourceTree = "<group>"; };
 		9841CD43280709C600B8D3DA /* GroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupType.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				9841CD4928070DC600B8D3DA /* MovieGroupCollectionView.swift */,
 				9841CD4B2807176C00B8D3DA /* MovieGroupCollectionViewCell.swift */,
 				9841CD4D28075D9300B8D3DA /* FilterStackView.swift */,
+				980EA137282441FA00C294E9 /* newViewController.swift */,
+				980EA1392824429400C294E9 /* FavoritesViewController.swift */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -191,11 +197,13 @@
 				985010992803224200391A85 /* SearchBarView.swift in Sources */,
 				9841CD4C2807176C00B8D3DA /* MovieGroupCollectionViewCell.swift in Sources */,
 				9841CD4828070C5400B8D3DA /* MovieGroupsTableViewCell.swift in Sources */,
+				980EA138282441FA00C294E9 /* newViewController.swift in Sources */,
 				9841CD4E28075D9300B8D3DA /* FilterStackView.swift in Sources */,
 				9814893F27EB338300AE520C /* MovieDetailsViewController.swift in Sources */,
 				98CF469327E748B000E97E37 /* AppDelegate.swift in Sources */,
 				98CF469527E748B000E97E37 /* SceneDelegate.swift in Sources */,
 				98D081F428021B2F000DD016 /* MovieListViewController.swift in Sources */,
+				980EA13A2824429400C294E9 /* FavoritesViewController.swift in Sources */,
 				9841CD4628070B4C00B8D3DA /* FilterType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

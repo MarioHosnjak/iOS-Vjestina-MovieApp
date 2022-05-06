@@ -8,7 +8,7 @@
 import UIKit
 import MovieAppData
 
-class MovieGroupCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout  {
+class MovieGroupCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate  {
     
     var cellId = "cellID"
     var filters : [FilterType] = []
@@ -20,6 +20,7 @@ class MovieGroupCollectionView: UICollectionView, UICollectionViewDelegateFlowLa
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 10
         super.init(frame: .zero, collectionViewLayout : layout)
+    
         
         configureCollectionView()
     }
@@ -70,6 +71,18 @@ extension MovieGroupCollectionView : UICollectionViewDataSource {
         cell.layer.cornerRadius = 15
         cell.set(movie: allMoviesInGroup[indexPath.row])
         cell.isUserInteractionEnabled = true
+        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapFunc(sender: ))))
         return cell
+    }
+    
+    @objc
+    func tapFunc(sender: Any){
+        print("row")
+        let vc = MovieDetailsViewController()
+        let vc2 = MovieListViewController()
+        vc2.tapFunc1()
+//        let nc = UINavigationController(rootViewController: MovieListViewController())
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
